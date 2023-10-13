@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import MainMenu from "./components/MainMenu/MainMenu";
-import Game from "./components/Game/Game";
+import Game from "./components/Game/Roulette/RouletteMain";
 import Settings from "./components/Settings/Settings";
 import SignUp from "./components/Sign-up/SignUp";
 import SignIn from "./components/Sign-in/SignIn";
@@ -17,7 +17,7 @@ function App() {
     if (userData && userData.authenticated) {
       navigate("/main-menu");
     }
-  }, [navigate]);
+  }, []);
   const { authenticated } = useAuth();
 
   return (
