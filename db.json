@@ -1,0 +1,14 @@
+{
+  "accounts": [
+    {
+      "id": 0,
+      "email": "admin",
+      "password": "admin",
+      "img":"https://cdn.shrek-movies.com/1663396507295.jpg",
+      "coin":"9999999",
+      "money":"0",
+      "playerName":"Bekzod Krasavchik"
+    }
+  ]
+
+}
