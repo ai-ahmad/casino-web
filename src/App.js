@@ -7,33 +7,42 @@ import SignUp from "./components/Sign-up/SignUp";
 import SignIn from "./components/Sign-in/SignIn";
 import Register from "./components/Register/Register";
 import { AuthProvider, useAuth } from "./context/AuthContext";
+import Roulette from "./components/Game/Roulette";
 
 function App() {
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("user"));
-    
+
     if (userData && userData.authenticated) {
       navigate("/main-menu");
     }
-  }, [navigate]);
+  }, []);
   const { authenticated } = useAuth();
 
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Register />} />
-        <Route path="/main-menu" element={<PrivateRoute element={<MainMenu />} />} />
-        <Route path="/settings" element={<PrivateRoute element={<Settings />} />} />
+        <Route
+          path="/main-menu"
+          element={<PrivateRoute element={<MainMenu />} />}
+        />
+        <Route
+          path="/settings"
+          element={<PrivateRoute element={<Settings />} />}
+        />
         <Route path="/game" element={<PrivateRoute element={<Game />} />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route
           path="*"
           element={
-            <div className='h-screen bg-gradient-to-br from-slate-900 to-slate-700 flex items-center justify-center flex-col gap-6'>
-              <p className='text-6xl text-white animate-bounce'>PAGE NOT FOUND</p>
+            <div className="h-screen bg-gradient-to-br from-slate-900 to-slate-700 flex items-center justify-center flex-col gap-6">
+              <p className="text-6xl text-white animate-bounce">
+                PAGE NOT FOUND
+              </p>
             </div>
           }
         />
@@ -58,4 +67,3 @@ export function AppWrapper() {
 }
 
 export default App;
-
